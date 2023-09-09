@@ -20,11 +20,15 @@ class InfoAPIView(APIView):
   
         
         current_day = datetime.now(pytz.utc).strftime('%A')
-        utc_now = datetime.now(pytz.utc)
+        # utc_now = datetime.now(pytz.utc)
+        utc_now = datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
 
         # Calculate the UTC time within a +/-2 minute window
-        utc_time = utc_now + timedelta(minutes=2)  # Add 2 minutes
-        utc_time_str = utc_time.strftime('%Y-%m-%dT%H:%M:%SZ')
+        # utc_time = utc_now + timedelta(minutes=2)  # Add 2 minutes
+        # utc_time_str = utc_time.strftime('%Y-%m-%dT%H:%M:%SZ')
+
+        
 
         github_repo_url = "https://github.com/breezeconcept/HNGx_Task1"
         github_file_url = f"{github_repo_url}/blob/main/home/views.py"
@@ -32,7 +36,7 @@ class InfoAPIView(APIView):
         data = {
             "slack_name": slack_name,
             "current_day": current_day,
-            "utc_time": utc_time_str,
+            "utc_time": utc_now,
             "track": track,
             "github_file_url": github_file_url,
             "github_repo_url": github_repo_url,
