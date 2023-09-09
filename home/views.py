@@ -18,8 +18,8 @@ class InfoAPIView(APIView):
 
         current_day = datetime.now(pytz.utc).strftime('%A')
         utc_time = datetime.now(pytz.utc)
-        github_repo_url = "https://github.com/username/repo"
-        github_file_url = f"{github_repo_url}/blob/main/file_name.ext"
+        github_repo_url = "https://github.com/breezeconcept/HNGx_Task1"
+        github_file_url = f"{github_repo_url}/blob/main/home/views.py"
 
         data = {
             "slack_name": slack_name,
