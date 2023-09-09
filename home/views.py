@@ -21,7 +21,9 @@ class InfoAPIView(APIView):
         
         current_day = datetime.now(pytz.utc).strftime('%A')
         # utc_now = datetime.now(pytz.utc)
-        utc_now = datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        # utc_now = datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        utc_now = datetime.now(pytz.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
 
 
         # Calculate the UTC time within a +/-2 minute window
